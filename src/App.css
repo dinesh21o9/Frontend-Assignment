@@ -1,0 +1,22 @@
+.app-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 100vh;
+}
+
+.left-panel {
+  grid-column: 1 / 2;
+  color: white;
+  padding: 5%;
+  overflow: auto;
+}
+
+.right-panel {
+  grid-column: 2 / 3;
+  background-color: #f0f0f0; 
+  overflow: auto;
+}
+
+.right-form-container {
+  padding: 20px;
+}
