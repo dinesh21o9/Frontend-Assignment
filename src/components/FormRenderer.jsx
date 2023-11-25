@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const FormRenderer = ({ uiSchema }) => {
-  
+const FormRenderer = ({ uiSchema, data, setData, order }) => {
   const renderField = (field) => {
     switch (field.uiType) {
       case 'Input':
@@ -45,21 +44,24 @@ const FormRenderer = ({ uiSchema }) => {
     }
   };
 
-  const renderForm = () => {
-    if (!uiSchema) {
+  const renderForm = (data) => {
+    if (!data) {
       return <div>No UI Schema provided</div>;
     }
 
     return (
       <div className="form-renderer">
-        <h2>Form Preview</h2>
-        {uiSchema.map((field) => renderField(field))}
-        <button type="submit">Submit</button>
+        {data.map((field) => renderField(field))}
       </div>
     );
   };
 
-  return <form>{renderForm()}</form>;
+  return (
+    <form>
+      {renderForm(uiSchema)}
+      <button type="submit">Submit</button>
+    </form>
+  );
 };
 
 export default FormRenderer;
